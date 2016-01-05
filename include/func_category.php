@@ -114,9 +114,69 @@ class Category{
             return $result;
     }
     
+    public function getQuestionList($question_id='',$question='',$answer='',$resolution='',$keyword='',$exam_id='',$year='',$item_id='') {
+    	$sql = "SELECT * FROM question";
+    		$sql .= " where 1 ";
+    	if (!empty($question_id)) {
+    		$sql .= " and question_id ='".$question_id."'";
+    	}
+    	if (!empty($question)) {
+    		$sql .= " and question like '%".$question."%'";
+    	}
+    	if (!empty($answer)) {
+    		$sql .= " and answer like '%".$answer."%'";
+    	}  	
+    	if (!empty($resolution)) {
+    		$sql .= " and resolution like '%".$resolution."%'";
+    	}
+    	if (!empty($keyword)) {
+    		$sql .= " and keyword like '%".$keyword."%'";
+    	}
+    	if (!empty($exam_id)) {
+    		$sql .= " and exam_id = '".$exam_id."'";
+    	}
+    	if (!empty($year)) {
+    		$sql .= " and year = '".$year."'";
+    	}
+    	if (!empty($item_id)) {
+    		$sql .= " and item_id = '".$item_id."'";
+    	}
+			$result = $this->conn->query($sql);
+			return $result;
+    }
+    
     public function addQuestion($question,$answer,$resolution,$keyword,$exam_id='',$year,$item_id) {
             $sql = "insert into question (question,answer,resolution,keyword,exam_id,year,item_id)";
             $sql .= " values ('".$question."','".$answer."','".$resolution."','".$keyword."','".$exam_id."','".$year."','".$item_id."')";
+        //print $sql;exit;
+            $result = $this->conn->query($sql);
+            return $result;
+    }
+    
+    public function updQuestion($question_id,$question='',$answer='',$resolution='',$keyword='',$exam_id='',$year='',$item_id='') {
+            $sql = "UPDATE question set question_id = '".$question_id."'";
+            if (!empty($question)) {
+			    		$sql .= " ,question = '".$question."'";
+			    	}
+			    	if (!empty($answer)) {
+			    		$sql .= " ,answer = '".$answer."'";
+			    	}  	
+			    	if (!empty($resolution)) {
+			    		$sql .= " ,resolution = '".$resolution."'";
+			    	}
+			    	if (!empty($keyword)) {
+			    		$sql .= " ,keyword = '".$keyword."'";
+			    	}
+			    	if (!empty($exam_id)) {
+			    		$sql .= " ,exam_id = '".$exam_id."'";
+			    	}
+			    	if (!empty($year)) {
+			    		$sql .= " ,year = '".$year."'";
+			    	}
+			    	if (!empty($item_id)) {
+			    		$sql .= " ,item_id = '".$item_id."'";
+			    	}
+            $sql .= " where question_id = '".$question_id."'";
         //print $sql;exit;
             $result = $this->conn->query($sql);
             return $result;
