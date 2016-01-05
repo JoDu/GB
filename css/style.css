@@ -56,7 +56,8 @@ overflow:hidden;
 
 .right{float:right}
 
-.content{width:695px;margin-left:255px;}
+/*.content{width:695px;margin-left:255px;}*/
+.content{width:940px;margin-left:5px;}
 
 /* header
 ---------------------------------------------------------*/
@@ -396,6 +397,7 @@ border-bottom-right-radius:4px;
 
 a.female{color:#f46a6a}
 a.man{color:#2e96c3}
+a.question{color:#000}
 
 /* table customer week
 ---------------------------------------------------------*/
