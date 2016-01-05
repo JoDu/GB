@@ -64,6 +64,20 @@ if ($_POST["submitType"] == "addQuestion") {
 	$exam_name = $exam_result[0]["exam_name"];
 }
 
+if ($_POST["submitType"] == "editQuestion") {
+	$question_id = $_POST["postQ"];
+	$submitType = $_POST["submitType"];
+	$question = $_POST["question"];
+	$answer = $_POST["answer"];
+	$resolution = $_POST["resolution"];
+	$keyword = $_POST["keyword"];
+	$year = $_POST["year"];
+	//$exam_id = $_POST["jexam"];
+	$page_title = "修改題目預覽";
+	//$exam_result = $conn_ategory->getExamList($exam_id);
+	//$exam_name = $exam_result[0]["exam_name"];
+}
+
 
 if ($_POST["submitType"] == "新增考試") {
 	$jexam = "1";
@@ -82,7 +96,7 @@ if ($_POST["submitType"] == "新增考試") {
 			<div class="body">
 				<div class="form-edit">
 					<div class="control-group">
-						<?php if ($submitType == "addQuestion") { ?>
+						<?php if ($submitType == "addQuestion" || $submitType == "editQuestion") { ?>
 							<div class="control-group">
 								<label class="control-label">題目</label>
 								<div class="controls"><?php print $question;?></div>
@@ -118,8 +132,9 @@ if ($_POST["submitType"] == "新增考試") {
 								<div class="controls"><?php print $item_result[0]["item_name"];?></div>
 							</div>
 							<div class="btn-box-1">
-								<button type="submit" name="submitType" value="addQuestion" class="btn red">確認送出</button>
+								<button type="submit" name="submitType" value="<?php print $submitType;?>" class="btn red">確認送出</button>
 							</div>
+							<input type="hidden" name="postQ" value="<?php print $question_id;?>">
 						<?php } else {?>
 							<?php if (empty($jcategory) && empty($jexam)) { ?>
 								類別編號:<input type="text" name="categoryID"><br/>

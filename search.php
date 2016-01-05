@@ -61,9 +61,6 @@ function removeOptions(selectbox)
 
 
 function renew(sel){
-	var elements = myForm.subName;
-  //elements.value = elements.value.replace("類別", "學科");
-  elements.value = "新增學科";
 	var arrSubject = new Array();
 	arrSubject = subject[sel.value];
 	//var arrLength = Object.keys(arrSubject).length;
@@ -82,8 +79,6 @@ function renew(sel){
 }
 
 function renew2(sel){
-	var elements = myForm.subName;
-  elements.value = "新增章";
 	var arrChapter = new Array();
 	arrChapter = chapter[sel.value];
 	
@@ -100,8 +95,6 @@ function renew2(sel){
 }
 
 function renew3(sel){
-	var elements = myForm.subName;
-  elements.value = "新增節";
 	var arrSection = new Array();
 	arrSection = section[sel.value];
 	removeOptions(document.getElementById("id_section"));
@@ -115,8 +108,6 @@ function renew3(sel){
 }
 
 function renew4(sel){
-	var elements = myForm.subName;
-  elements.value = "新增小節";
 	var arrPart = new Array();
 	arrPart = part[sel.value];
 	removeOptions(document.getElementById("id_part"));
@@ -129,8 +120,6 @@ function renew4(sel){
 }
 
 function renew5(sel){
-	var elements = myForm.subName;
-  elements.value = "新增項目";
 	var arrItem = new Array();
 	arrItem = item[sel.value];
 	removeOptions(document.getElementById("id_item"));
@@ -142,7 +131,7 @@ function renew5(sel){
 }
 </script>
 
-<form name="myForm" action="search_result.php" method="post">
+<form name="myForm" action="search_result.php?page=search" method="post">
 <div class="container">
 	<div class="widget add-customer">
 		<div class="body">
@@ -199,6 +188,7 @@ function renew5(sel){
         	</div>
 			  </div>
 			  
+				
 				<br/>
 				<div class="title">
 					<h3 class="icon-info">請選擇考試</h3>
@@ -217,7 +207,7 @@ function renew5(sel){
 						</div>
         	</div>
 				</div>
-				
+				<br/>
 				<div class="btn-box-1">
 				<button type="reset" class="btn basic">取消</button>
 				<button type="submit" name="submitType" value="search" class="btn red">搜尋</button>

@@ -31,7 +31,22 @@ if ($_POST["submitType"] == "addQuestion") {
 		}
 	} else {
 		$returnMesg = "項目錯誤!請選擇正確項目!";
-	}	
+	}
+} else if ($_POST["submitType"] == "editQuestion") {
+	if (!empty($_POST["postQ"])) {
+		$question_id = $_POST["postQ"];
+		$jitem = $_POST["postItem"];
+		$year=$_POST["postYear"];
+		$keyword=$_POST["postKeyword"];
+		$resolution=$_POST["postResolution"];
+		$answer=$_POST["postAnswer"];
+		$question=$_POST["postQuestion"];
+		$exam_id=$_POST["postExam"];
+		$conn_ategory->updQuestion($question_id,$question,$answer,$resolution,$keyword,'',$year,'');
+		$returnMesg = "題目修改成功";
+	} else {
+		$returnMesg = "資料不齊全";
+	}
 } else {
 	if (!empty($_POST["addData"])) {
 		if ($_POST["submitType"] == "新增類別") {
