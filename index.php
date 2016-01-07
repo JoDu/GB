@@ -141,6 +141,7 @@ function renew5(sel){
   }
 }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <form name="myForm" action="category_add.php" method="post">
 <div class="container">
@@ -212,7 +213,7 @@ function renew5(sel){
 					</div>
 					<div class="Row">
 						<div class="Cell">
-							<select name="jexam" size=5 style="width:200px;">
+							<select id="jexam" name="jexam" size=5 style="width:200px;">
 								<?php foreach ($exam_result as $key => $val) { ?>
 									<option value="<?php echo $val["exam_id"];?>"><?php echo $val["exam_name"];?></option>
 								<?php } ?>
@@ -271,4 +272,5 @@ function renew5(sel){
 	</div>
 </div>
 </form>
+<script src="./scripts/main.js"></script>
 <?php include_once("include/footer.php");?>
