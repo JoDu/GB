@@ -1,4 +1,4 @@
-
+<script src="./scripts/main.js"></script>
 <a href="index.php" class="toTop"></a>
 <!-- footer -->
 <div class="footer">
