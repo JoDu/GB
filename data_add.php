@@ -42,7 +42,7 @@ if ($_POST["submitType"] == "addQuestion") {
 		$answer=$_POST["postAnswer"];
 		$question=$_POST["postQuestion"];
 		$exam_id=$_POST["postExam"];
-		$conn_ategory->updQuestion($question_id,$question,$answer,$resolution,$keyword,'',$year,'');
+		$conn_ategory->updQuestion($question_id,$question,$answer,$resolution,$keyword,$exam_id,$year,$jitem);
 		$returnMesg = "題目修改成功";
 	} else {
 		$returnMesg = "資料不齊全";

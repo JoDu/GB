@@ -52,6 +52,7 @@ if (!empty($_POST["jitem"])) {
 }
 
 if ($_POST["submitType"] == "addQuestion") {
+	
 	$submitType = $_POST["submitType"];
 	$question = $_POST["question"];
 	$answer = $_POST["answer"];
@@ -60,8 +61,10 @@ if ($_POST["submitType"] == "addQuestion") {
 	$year = $_POST["year"];
 	$exam_id = $_POST["jexam"];
 	$page_title = "題目預覽";
-	$exam_result = $conn_ategory->getExamList($exam_id);
-	$exam_name = $exam_result[0]["exam_name"];
+	if (!empty($exam_id)) {
+		$exam_result = $conn_ategory->getExamList($exam_id);
+		$exam_name = $exam_result[0]["exam_name"];
+	}
 }
 
 if ($_POST["submitType"] == "editQuestion") {
@@ -72,10 +75,13 @@ if ($_POST["submitType"] == "editQuestion") {
 	$resolution = $_POST["resolution"];
 	$keyword = $_POST["keyword"];
 	$year = $_POST["year"];
-	//$exam_id = $_POST["jexam"];
+	$exam_id = $_POST["jexam"];
+	//$item_id = $_POST["jitem"];
 	$page_title = "修改題目預覽";
-	//$exam_result = $conn_ategory->getExamList($exam_id);
-	//$exam_name = $exam_result[0]["exam_name"];
+	if (!empty($exam_id)) {
+		$exam_result = $conn_ategory->getExamList($exam_id);
+		$exam_name = $exam_result[0]["exam_name"];
+	}
 }
 
 
@@ -119,7 +125,9 @@ if ($_POST["submitType"] == "新增考試") {
 							
 							<div class="control-group">
 								<label class="control-label">考試種類</label>
-								<div class="controls"><?php print $exam_name;?></div>
+								<?php if (!empty($exam_name)) { ?>
+									<div class="controls"><?php print $exam_name;?></div>
+								<?php } ?>
 							</div>
 							
 							<div class="control-group">

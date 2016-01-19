@@ -272,5 +272,4 @@ function renew5(sel){
 	</div>
 </div>
 </form>
-<script src="./scripts/main.js"></script>
 <?php include_once("include/footer.php");?>
